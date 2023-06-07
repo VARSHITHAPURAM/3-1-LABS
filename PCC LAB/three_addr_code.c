@@ -1,13 +1,6 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
-
-
-void pm();
-void plus();
-void divx();
-
-
 char rev(char *str){
 	int n = strlen(str);
 	for(int i=0,j=n-1;i<j;i++,j--){
@@ -16,10 +9,8 @@ char rev(char *str){
 		str[j] = ch;
 	}
 }
-
 int i,ch,j,l,addr=100;
 char ex[10],e[10] ,e1[10],e2[10],id1[5],op[5],id2[5];
-
 void pm(){
 	rev(e);
 	j=l-i-1;
@@ -27,42 +18,34 @@ void pm(){
 	rev(e1);
 	printf("Three address code:\ntemp=%s\ntemp1=%c%ctemp\n",e1,e[j+1],e[j]);
 }
-
 void divx(){
 	strncat(e1,e,i+2);
 	printf("Three address code:\ntemp=%s\ntemp1=temp%c%c\n",e1,e[i+2],e[i+3]);
 }
-
 void plus(){
 	strncat(e1,e,i+2);
 	printf("Three address code:\ntemp=%s\ntemp1=temp%c%c\n",e1,e[i+2],e[i+3]);
 }
-
-
 void main(){
 	while(1){
 		printf("\n1.assignment\n2.arithmetic\n3.relational\n4.Exit\nEnter the choice:");
 		scanf("%d",&ch);
 		switch(ch){
-			case 1:
-				printf("\nEnter the expression with assignment operator:");
+			case 1:printf("\nEnter the expression with assignment operator:");
 				scanf("%s",e);
 				l=strlen(e);
 				e2[0]='\0';
 				i=0;
-				while(e[i]!='='){
+				while(e[i]!='=')
 					i++;
-				}
 				strncat(e2,e,i);
 				rev(e);
 				e1[0]='\0';
 				strncat(e1,e,l-(i+1));
 				rev(e1);
 				printf("Three address code:\ntemp=%s\n%s=temp\n",e1,e2);
-			break;
-			
-			case 2:
-				printf("\nEnter the expression with arithmetic operator:");
+				break;
+			case 2:printf("\nEnter the expression with arithmetic operator:");
 				scanf("%s",ex);
 				strcpy(e,ex);
 				l=strlen(e);
@@ -83,10 +66,8 @@ void main(){
 						break;
 					}
 				}
-			break;
-			
-			case 3:
-				printf("Enter the expression with relational operator");
+				break;
+			case 3:printf("Enter the expression with relational operator");
 				scanf("%s%s%s",id1,op,id2);
 				if(((strcmp(op,"<")==0)||(strcmp(op,">")==0)||(strcmp(op,"<=")==0)||(strcmp(op,">=")==0)||(strcmp(op,"==")==0)||(strcmp(op,"!=")==0))==0)
 					printf("Expression is error");
@@ -99,10 +80,8 @@ void main(){
 					addr++;
 					printf("\n%d\t T:=1",addr);	
 				}
-			break;
-			
-			case 4:
-				exit(0);
+				break;
+			case 4:exit(0);
 		}
 	}
 }
