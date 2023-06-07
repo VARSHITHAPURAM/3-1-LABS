@@ -20,6 +20,25 @@ char rev(char *str){
 int i,ch,j,l,addr=100;
 char ex[10],e[10] ,e1[10],e2[10],id1[5],op[5],id2[5];
 
+void pm(){
+	rev(e);
+	j=l-i-1;
+	strncat(e1,e,j);
+	rev(e1);
+	printf("Three address code:\ntemp=%s\ntemp1=%c%ctemp\n",e1,e[j+1],e[j]);
+}
+
+void divx(){
+	strncat(e1,e,i+2);
+	printf("Three address code:\ntemp=%s\ntemp1=temp%c%c\n",e1,e[i+2],e[i+3]);
+}
+
+void plus(){
+	strncat(e1,e,i+2);
+	printf("Three address code:\ntemp=%s\ntemp1=temp%c%c\n",e1,e[i+2],e[i+3]);
+}
+
+
 void main(){
 	while(1){
 		printf("\n1.assignment\n2.arithmetic\n3.relational\n4.Exit\nEnter the choice:");
@@ -87,23 +106,3 @@ void main(){
 		}
 	}
 }
-
-
-void pm(){
-	rev(e);
-	j=l-i-1;
-	strncat(e1,e,j);
-	rev(e1);
-	printf("Three address code:\ntemp=%s\ntemp1=%c%ctemp\n",e1,e[j+1],e[j]);
-}
-
-void divx(){
-	strncat(e1,e,i+2);
-	printf("Three address code:\ntemp=%s\ntemp1=temp%c%c\n",e1,e[i+2],e[i+3]);
-}
-
-void plus(){
-	strncat(e1,e,i+2);
-	printf("Three address code:\ntemp=%s\ntemp1=temp%c%c\n",e1,e[i+2],e[i+3]);
-}
-
